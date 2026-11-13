@@ -20,6 +20,8 @@ OPEN_PREFIX = re.compile(r"\bOpen DeepTutor\b")
 WEB_DIRS = ["app", "components", "features", "context", "hooks", "lib", "shared", "i18n", "types"]
 WEB_SUFFIXES = {".ts", ".tsx", ".js", ".jsx", ".mjs"}
 PROMPT_SUFFIXES = {".yaml", ".yml", ".md", ".j2", ".txt"}
+# Terminal-facing messages (launcher, banner, doctor, CLI help).
+CLI_DIRS = ["deeptutor_cli", "deeptutor/runtime"]
 
 
 def rebrand_text(text: str) -> str:
@@ -50,6 +52,10 @@ def text_targets(root: Path):
     for p in (root / "deeptutor").rglob("*"):
         if p.is_file() and p.suffix in PROMPT_SUFFIXES and "prompts" in p.parts:
             yield p
+    for d in CLI_DIRS:
+        for p in (root / d).rglob("*.py"):
+            if p.is_file():
+                yield p
 
 
 def main(root: Path, dry: bool) -> None:
