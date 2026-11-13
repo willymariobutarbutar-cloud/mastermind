@@ -11,10 +11,10 @@ import {
 } from "@/components/sidebar/SessionAvatar";
 
 const TITLES = [
-  "DeepTutor 模型配置工作台",
-  "DeepTutor 侧边栏聊天历史重组",
-  "Thinking-orbs 集成到 DeepTutor",
-  "DeepTutor 模型配置集成逻辑",
+  "Mastermind 模型配置工作台",
+  "Mastermind 侧边栏聊天历史重组",
+  "Thinking-orbs 集成到 Mastermind",
+  "Mastermind 模型配置集成逻辑",
   "deeptutor.info 文档审查",
   "New session",
 ];

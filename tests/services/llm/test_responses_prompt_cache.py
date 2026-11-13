@@ -21,7 +21,7 @@ from deeptutor.services.llm.provider_core.openai_responses import (
 from deeptutor.services.provider_registry import find_by_name
 
 _MESSAGES: list[dict[str, Any]] = [
-    {"role": "system", "content": "You are DeepTutor."},
+    {"role": "system", "content": "You are Mastermind."},
     {"role": "user", "content": "First question"},
     {"role": "assistant", "content": "First answer"},
     {"role": "user", "content": "[Runtime context: workspace]\nCurrent turn"},
@@ -74,7 +74,7 @@ def test_gpt_6_marks_the_last_durable_user_message() -> None:
 
 def test_breakpoint_window_keeps_the_previous_turn_discoverable() -> None:
     provider = _provider("openai", "https://api.openai.com/v1", "gpt-6.1-terra")
-    messages: list[dict[str, Any]] = [{"role": "system", "content": "You are DeepTutor."}]
+    messages: list[dict[str, Any]] = [{"role": "system", "content": "You are Mastermind."}]
     for index in range(6):
         messages.append({"role": "user", "content": f"question {index}"})
         messages.append({"role": "assistant", "content": f"answer {index}"})
@@ -111,7 +111,7 @@ def test_non_openai_endpoint_keeps_implicit_caching() -> None:
 def test_first_turn_keeps_implicit_caching() -> None:
     provider = _provider("openai", "https://api.openai.com/v1", "gpt-6.1-terra")
     messages = [
-        {"role": "system", "content": "You are DeepTutor."},
+        {"role": "system", "content": "You are Mastermind."},
         {"role": "user", "content": "Only question"},
     ]
 
