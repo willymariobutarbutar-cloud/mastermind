@@ -409,7 +409,7 @@ export default function AboutSettingsPage() {
         <ResourceRow
           title={t("GitHub")}
           description={t("Source code, issues, and contributions")}
-          href="https://github.com/HKUDS/DeepTutor"
+          href="https://github.com/willymariobutarbutar-cloud/mastermind"
           icon={<Github className="h-4 w-4" />}
         />
         <ResourceRow

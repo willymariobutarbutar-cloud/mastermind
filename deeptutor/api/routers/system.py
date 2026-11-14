@@ -40,6 +40,7 @@ from deeptutor.services.config import (
     resolve_search_runtime_config,
     supported_search_providers_hint,
 )
+from deeptutor.services.fork_policy import apply_fork_policy
 
 
 def get_embedding_client(*args, **kwargs):
@@ -102,7 +103,8 @@ def get_update_job_store() -> UpdateJobStore:
 
 
 def get_update_installation() -> Installation:
-    return detect_installation()
+    # Mastermind fork: never self-install upstream DeepTutor over the fork.
+    return apply_fork_policy(detect_installation())
 
 
 def get_turn_activity():
